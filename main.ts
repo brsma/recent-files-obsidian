@@ -97,13 +97,13 @@ class RecentFilesListView extends ItemView {
   public readonly redraw = (): void => {
     const openFile = this.app.workspace.getActiveFile();
 
-    const rootEl = createDiv({ cls: 'nav-folder mod-root' });
-    const childrenEl = rootEl.createDiv({ cls: 'nav-folder-children' });
+    const rootEl = createDiv({ cls: 'tree-item nav-folder mod-root' });
+    const childrenEl = rootEl.createDiv({ cls: 'tree-item nav-folder-children' });
 
     this.data.recentFiles.forEach((currentFile) => {
-      const navFile = childrenEl.createDiv({ cls: 'nav-file recent-files-file' });
-      const navFileTitle = navFile.createDiv({ cls: 'nav-file-title recent-files-title' })
-      const navFileTitleContent = navFileTitle.createDiv({ cls: 'nav-file-title-content recent-files-title-content' })
+      const navFile = childrenEl.createDiv({ cls: 'tree-item-children nav-file recent-files-file' });
+      const navFileTitle = navFile.createDiv({ cls: 'tree-item-self nav-file-title recent-files-title' })
+      const navFileTitleContent = navFileTitle.createDiv({ cls: 'tree-item-inner nav-file-title-content recent-files-title-content' })
 
       navFileTitleContent.setText(currentFile.basename)
 
